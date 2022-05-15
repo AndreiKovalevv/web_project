@@ -5,18 +5,14 @@ import java.sql.DriverManager;
 
 public class sqliteConnection {	
 	Connection conn = null;
-	String	server = "localhost";	
-	String user = "root";
-	String password = "Kirito14";
-	  String url = "jdbc:mysql://localhost/bd";
-
+	String url = "jdbc:sqlite:C:/Users/vagne/eclipse-workspace/Web_forum/src/main/dataBase/BD.db";
 	
 	
 	public Connection dbConnector() throws SQLException {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-;
-			conn = DriverManager.getConnection(url,user,password);
+			Class.forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection(url);
+			
 			System.out.println("Connection succesfull!");
 			return conn;
 			
